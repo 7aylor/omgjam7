@@ -19,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void OnMouseOver()
-    {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        tileMap.SetColor(new Vector3Int((int)mousePos.x, (int)mousePos.y, 0), Color.gray);
-        TileBase tile = tileMap.GetTile(new Vector3Int((int)mousePos.x, (int)mousePos.y, 0));
-        Debug.Log(tile);
-        Debug.Log("Mouse Pos: " + (int)mousePos.x + ", " + (int)mousePos.y);
-    }
+    //private void OnMouseOver()
+    //{
+    //    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //    tileMap.SetColor(new Vector3Int((int)mousePos.x, (int)mousePos.y, 0), Color.gray);
+    //    TileBase tile = tileMap.GetTile(new Vector3Int((int)mousePos.x, (int)mousePos.y, 0));
+    //    Debug.Log(tile);
+    //    Debug.Log("Mouse Pos: " + (int)mousePos.x + ", " + (int)mousePos.y);
+    //}
 }
