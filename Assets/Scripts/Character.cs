@@ -8,6 +8,7 @@ public enum Element { Earth, Water, Fire, Acid, DarkEnergy, Mana}
 [RequireComponent(typeof(Animator))]
 public class Character : MonoBehaviour
 {
+    #region Character Stats
     [Header("Stats")]
     [Range(5, 25)]
     [Tooltip("Counter to Will")]
@@ -33,12 +34,17 @@ public class Character : MonoBehaviour
     [Tooltip("Counter to Range")]
     public int Armor;
 
+    [Range(100, 200)]
+    public int Health;
+
     public Element BuffElement;
     public Element NerfElement;
+    #endregion
 
-    Character versusEnemy;
-    public int gridSpace { get; set; }
+    public bool hasPlayedTurn = false;
+    public int actionPoints = 2;
 
+    public int gridSpace;
 
     // Start is called before the first frame update
     void Start()

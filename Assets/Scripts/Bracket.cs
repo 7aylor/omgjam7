@@ -17,23 +17,27 @@ public class Bracket
         }
     }
 
+    /// <summary>
+    /// Loops through characters that haven't been picked and pairs them
+    /// up with another character to fight
+    /// </summary>
+    /// <param name="characters"></param>
     private void PickMatchup(List<Character> characters)
     {
         System.Random r = new System.Random();
 
-        int firstPick = r.Next(0, characters.Count);
-        int secondPick = -1;
+        //pick first character and remove from characters
+        Character firstPick = characters[r.Next(0, characters.Count)];
+        characters.Remove(firstPick);
 
-        do
-        {
-            secondPick = r.Next(0, characters.Count);
-        } while (secondPick == firstPick);
+        //picke second character and remove from characters
+        Character secondPick = characters[r.Next(0, characters.Count)];
+        characters.Remove(secondPick);
 
-        matchups.Add(new Matchup(characters[firstPick], characters[secondPick]));
-
-        characters.Remove(characters[firstPick]);
-        characters.Remove(characters[secondPick]);
+        //add this combo to the matchups
+        matchups.Add(new Matchup(firstPick, secondPick));
     }
+
 
     public void PrintBracket()
     {

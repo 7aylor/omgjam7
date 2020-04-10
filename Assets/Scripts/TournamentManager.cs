@@ -7,6 +7,7 @@ public class TournamentManager : MonoBehaviour
 {
     List<Character> characters;
 
+    public int rounds = 1;
     Bracket bracket;
 
     private void Awake()
@@ -26,16 +27,13 @@ public class TournamentManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         characters = FindObjectsOfType<Character>().ToList();
-        Debug.Log(characters.Count);
         bracket = new Bracket(characters);
         bracket.PrintBracket();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

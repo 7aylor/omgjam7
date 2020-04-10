@@ -14,5 +14,13 @@ public class Player : MonoBehaviour
         
     }
 
-    
+    public void EnableMovementBoxes()
+    {
+        var movementBoxes = GetComponentsInChildren<MovementBox>();
+        
+        foreach(MovementBox box in movementBoxes)
+        {
+            box.Enable();
+        }
+    }
 }

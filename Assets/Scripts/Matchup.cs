@@ -6,6 +6,8 @@ public class Matchup : MonoBehaviour
 {
     public Character character1;
     public Character character2;
+    public int rounds = 1;
+
 
     public Matchup(Character c1, Character c2)
     {
