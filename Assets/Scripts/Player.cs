@@ -4,23 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Character character;
+
     void Start()
     {
-        
+        character = GetComponent<Character>();
     }
 
     void Update()
     {
         
-    }
-
-    public void EnableMovementBoxes()
-    {
-        var movementBoxes = GetComponentsInChildren<MovementBox>();
-        
-        foreach(MovementBox box in movementBoxes)
-        {
-            box.Enable();
-        }
     }
 }

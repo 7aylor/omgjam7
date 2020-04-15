@@ -62,4 +62,46 @@ public class Character : MonoBehaviour
     {
 
     }
+
+    protected void TakeDamage(int amount)
+    {
+        Health -= amount;
+
+    }
+
+    public void EnableMovementBoxes()
+    {
+        var movementBoxes = GetComponentsInChildren<MovementBox>();
+
+        EnableAllMovementBoxes(movementBoxes);
+    }
+
+    private static void EnableAllMovementBoxes(MovementBox[] movementBoxes)
+    {
+        foreach (MovementBox box in movementBoxes)
+        {
+            box.Enable();
+        }
+    }
+
+    public IEnumerator MovePlayerCoroutine(Vector2 moveDirection, Vector2 targetLocation)
+    {
+        //moving so s
+        actionPoints--;
+
+        //trigger walk animation
+        while (Vector2.Distance((Vector2)transform.position, targetLocation) > 0.05f)
+        {
+
+            transform.Translate(moveDirection * Time.deltaTime);
+            yield return new WaitForSeconds(0.01f);
+        }
+        //trigger idle animation
+        transform.position = targetLocation;
+
+        if (actionPoints > 0)
+        {
+            EnableMovementBoxes();
+        }
+    }
 }
